@@ -1,7 +1,8 @@
 ---
+
 # VM Creator
 
-VM Creator is a command-line application written in Go that reads VM specifications from an Excel file and creates those VMs in vCenter. This project is ideal for system administrators who need to automate the creation of multiple VMs with predefined specifications.
+VM Creator is a command-line application written in Python that reads VM specifications from an Excel file and creates those VMs in vCenter. This project is ideal for system administrators who need to automate the creation of multiple VMs with predefined specifications.
 
 ## Features
 
@@ -11,21 +12,28 @@ VM Creator is a command-line application written in Go that reads VM specificati
 
 ## Requirements
 
-- Go 1.16 or higher.
+- Python 3.6 or higher.
 - Access to a vCenter environment.
 - vCenter access credentials.
+- Required Python packages: `pyvmomi`, `openpyxl`.
 
 ## Installation
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/eltonlaice/vm-creator.git
-   cd vm-creator
+   git clone https://github.com/eltonlaice/vm-creator-python.git
+   cd vm-creator-python
    ```
 
-2. Install dependencies:
+2. Create a virtual environment and activate it:
    ```bash
-   go mod tidy
+   python3 -m venv venv
+   source venv/bin/activate  # on Windows use `venv\Scripts\activate`
+   ```
+
+3. Install the required packages:
+   ```bash
+   pip install -r requirements.txt
    ```
 
 ## Configuration
@@ -54,7 +62,7 @@ export VCENTER_PASSWORD="your-password"
 To run the application, use the command:
 
 ```bash
-go run main.go
+python main.py
 ```
 
 The application will read the specifications from the `vm_specs.xlsx` file and create the VMs in vCenter according to the specifications.
